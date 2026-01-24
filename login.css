@@ -234,7 +234,7 @@
 /* Login */
 .login-container {
   width: 420px;               /* plus large */
-  min-height: 520px;          /* hauteur suffisante pour formulaire + titre + espace */
+  min-height: 250px;          /* hauteur suffisante pour formulaire + titre + espace */
   background: rgba(15, 23, 42, 0.70);   /* plus transparent (0.85 → 0.70) */
   padding: 40px 35px;         /* plus d'espace intérieur */
   border-radius: 20px;

@@ -224,49 +224,42 @@ body {
 #commentaire,
 textarea {
   width: 100%;
-  min-height: 140px;           /* ou 180px si tu veux plus grand */
-  padding: 14px 16px;
+  min-height: 140px;      /* hauteur de base */
+  padding: 12px;
   margin: 8px 0 20px;
-  background: rgba(245, 246, 249, 0.55);   /* fond semi-transparent sombre */
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  border-radius: 12px;
-  color: black;              /* texte clair */
+  background: #fff;       /* fond blanc */
+  border: 1px solid #ccc; /* bord gris clair */
+  border-radius: 8px;
+  color: #000;            /* texte noir */
   font-size: 15px;
   line-height: 1.5;
-  resize: vertical;            /* permet de redimensionner seulement en hauteur */
-  transition: all 0.3s ease;
+  resize: vertical;       /* on peut redimensionner en hauteur seulement */
   font-family: 'Segoe UI', system-ui, sans-serif;
-  backdrop-filter: blur(4px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Effet focus → glow néon */
+/* Focus simple mais visible */
 #commentaire:focus,
 textarea:focus {
   outline: none;
-  border-color: #00f0ff;
-  box-shadow: 
-    0 0 18px rgba(0, 240, 255, 0.5),
-    0 0 8px rgba(0, 240, 255, 0.3) inset;
-  background: rgba(30, 40, 60, 0.75);
+  border-color: #00f0ff;           /* couleur complémentaire */
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
 }
 
-/* Placeholder stylé - très important pour qu'il ne soit plus "mauvais" */
+/* Placeholder simple */
 #commentaire::placeholder,
 textarea::placeholder {
-  color: rgba(165, 243, 252, 0.65);     /* cyan clair semi-transparent */
-  opacity: 1;                            /* force la visibilité */
+  color: #888;      /* gris */
   font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.4px;
 }
 
-/* Support navigateurs plus anciens (très utile) */
+/* Compatibilité navigateurs anciens */
 #commentaire::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder { color: rgba(165, 243, 252, 0.65); }
+textarea::-webkit-input-placeholder { color: #888; }
 #commentaire::-moz-placeholder,
-textarea::-moz-placeholder          { color: rgba(165, 243, 252, 0.65); opacity: 1; }
+textarea::-moz-placeholder { color: #888; opacity: 1; }
 #commentaire:-ms-input-placeholder,
-textarea:-ms-input-placeholder      { color: rgba(165, 243, 252, 0.65); }
+textarea:-ms-input-placeholder { color: #888; }
 
 .btn-secondary {
   display: flex;
