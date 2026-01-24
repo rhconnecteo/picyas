@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadCollaborateurs();
 });
 
-// ================ CHARGER LES COLLABORATEURS ================
+// ================ CHARGER LES COLLABORATEURS Bonjour================
 async function loadCollaborateurs() {
   resetUI();
 
