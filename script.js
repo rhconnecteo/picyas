@@ -1,6 +1,79 @@
 // ================ CONFIGURATION ================
 const API_URL = "https://script.google.com/macros/s/AKfycbzSpZ8pZ170BY_9cBvt9XEvPWKLQYOxWUxZqhDIDhIlrnN9TSEjPkykQpPgMTxc23BFvQ/exec";
 
+
+// ==== LOGIN ====
+const users = [
+  { username: "admin", password: "picyas" }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("btnLogin");
+  const loginContainer = document.getElementById("loginContainer");
+  const mainContainer = document.getElementById("mainContainer");
+  const loginError = document.getElementById("loginError");
+
+  loginBtn.addEventListener("click", () => {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    const userValid = users.find(u => u.username === username && u.password === password);
+
+    if (userValid) {
+      // Login OK → on affiche le contenu principal
+      loginContainer.style.display = "none";
+      mainContainer.style.display = "block";
+
+      // Charger les collaborateurs dès l'ouverture
+      loadCollaborateurs();
+    } else {
+      // Login échoué
+      loginError.style.display = "block";
+    }
+  });
+});
+
+const slogans = [
+  "Chaque expérience est unique.",
+  "Grandissons ensemble.",
+  "Votre potentiel, notre mission.",
+  "L’excellence commence par l’humain.",
+  "La compétence au cœur de la performance.",
+  "Construisons l’avenir ensemble.",
+  "Apprendre, évoluer, réussir.",
+  "La qualité est notre engagement.",
+  "Votre savoir-faire fait la différence.",
+  "Ensemble vers l’excellence.",
+
+  // Versions compétences / talents gardées (les plus distinctes)
+  "Vos compétences, notre fierté.",
+  "Compétences d’aujourd’hui, succès de demain.",
+  "Développer les compétences, libérer les performances.",
+  "Chaque compétence compte, chaque personne brille.",
+  "Cultivons les compétences, récoltons l’excellence.",
+  "Rendre visible chaque compétence.",
+  "Vos compétences prennent vie ici.",
+
+  // Versions talents (gardé 2-3 variées)
+  "Révéler les talents, construire l’excellence.",
+  "Valoriser chaque talent, accélérer chaque projet.",
+  "Votre talent mérite d’être vu.",
+  "Mettre en lumière vos talents."
+];
+
+let sloganIndex = 0;
+const sloganElement = document.getElementById("sloganText");
+
+// Sécurité : vérifier que l’élément existe
+if (sloganElement) {
+  setInterval(() => {
+    sloganIndex = (sloganIndex + 1) % slogans.length;
+    sloganElement.textContent = slogans[sloganIndex];
+  }, 3000); // 3 secondes par slogan
+}
+
+
+
 // ================ VARIABLES GLOBALES ================
 let pendingPayload = null;
 let currentMatricule = null;
@@ -10,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadCollaborateurs();
 });
 
-// ================ CHARGER LES COLLABORATEURS Bonjour================
+// ================ CHARGER LES COLLABORATEURS ================
 async function loadCollaborateurs() {
   resetUI();
 

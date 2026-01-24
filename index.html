@@ -5,11 +5,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gestion des Compétences</title>
+   <link rel="icon" href="yas.png?v=2" type="image/png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
-<div class="container">
+<div class="login">
+<div class="space-bg">
+    <div class="stars"></div>
+    <div class="moon"></div>
+    <div class="planet planet-1"></div>
+    <div class="planet planet-2"></div>
+    <div class="planet planet-3"></div>
+    <div class="planet planet-4"></div>
+    <div class="planet planet-5"></div>
+    <div class="planet planet-6"></div>
+    <div class="planet planet-7"></div>
+    <div class="planet planet-8"></div>
+</div>
+  <div class="slogan" id="sloganText">
+  Chaque expérience est unique
+  </div>
+<div id="loginContainer" class="login-container">
+<img src="yas.png" class="logo" alt="YAS" style="width:100px;margin-bottom:10px;">
+  <h2 class="pic">Pic du Collaborateur YAS</h2>
+  <label>Nom d'utilisateur</label>
+  <input type="text" id="username" placeholder="Nom d'utilisateur">
+  <label>Mot de passe</label>
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button id="btnLogin">Se connecter</button>
+  <div id="loginError" style="display:none;color:#ef4444;margin-top:10px;">
+    Identifiants incorrects
+  </div>
+</div>
+</div>
+<div class="container" id="mainContainer" style="display:none;">
 
 <header class="header">
   <h1 class="main-title">Gestion des Compétences</h1>
@@ -92,8 +123,30 @@
 <!-- MODAL RÉCAP -->
 <div id="recapModal" class="modal" style="display:none;">
   <div class="modal-content">
-    <h3>Récapitulatif</h3>
-
+    <h2 style="color: rgba(9, 240, 9, 0.856); text-align:center;">Récapitulatif</h2>
+    <div style="
+      background: #fffbeb;          /* jaune très très pâle, doux */
+      border: 2px solid #fbbf24;    /* orange clair et léger */
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(251, 191, 36, 0.12);  /* ombre ultra-douce */
+    ">
+      <h4 style="margin: 0 0 16px; color: #854d0e; font-size: 1.2rem; font-weight: 600;">
+        Dernière vérification avant enregistrement.
+      </h4>
+      
+      <p style="margin: 0 0 14px; color: #713f12; line-height: 1.5; font-size: 1.05rem;">
+        Vérifiez attentivement les compétences sélectionnées.<br>
+        <strong style="color: #9c4a00;">Aucun retour en arrière possible après validation.</strong> 😊
+      </p>
+      
+      <p style="margin: 0; color: #713f12;">
+        N’hésitez pas aussi à indiquer en commentaire la raison pour laquelle vous avez choisi ces compétences pour votre équipe, <span style="color: #02580e; font-weight: bold;">cela nous aide vraiment à mieux comprendre vos choix.</span><br>
+        Merci beaucoup 🙏
+      </p>
+    </div>
     <!-- Résumé des compétences -->
     <div id="recapContent"></div>
 
@@ -102,7 +155,11 @@
 
     <div class="recap-comment">
   <label>Commentaire</label>
-  <textarea id="commentaire"></textarea>
+  <textarea 
+  id="commentaire" 
+  placeholder="Écris ton commentaire ici... ✨"
+  rows="6"
+></textarea>
   <div id="commentError" class="comment-error" style="display:none;">
     Le commentaire est obligatoire.
   </div>

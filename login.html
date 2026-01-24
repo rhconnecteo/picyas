@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND ANIMÉ -->
+<div class="space-bg">
+  <div class="moon"></div>
+  <div class="stars"></div>
+</div>
+
+<!-- SLOGANS -->
+<div class="slogans">
+  <span>Chaque expérience est unique</span>
+  <span>L’excellence commence ici</span>
+  <span>La compétence fait la différence</span>
+  <span>Grandissons ensemble</span>
+</div>
+
+<!-- LOGIN -->
+<div class="login-container">
+  <img src="yas.png" class="logo" alt="YAS">
+
+  <h2>Connexion</h2>
+
+  <input type="text" id="username" placeholder="Utilisateur">
+  <input type="password" id="password" placeholder="Mot de passe">
+
+  <button onclick="login()">Se connecter</button>
+
+  <p id="loginError">Identifiants incorrects</p>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

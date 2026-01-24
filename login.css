@@ -1,0 +1,346 @@
+/* Reset
+ {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+} */
+
+/* Background spatial */
+.space-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at bottom, #020617, #000);
+  z-index: -1;
+}
+
+/* Etoiles */
+.stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 80% 40%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent),
+    radial-gradient(1px 1px at 70% 20%, white, transparent);
+  animation: twinkle 6s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Lune */
+.moon {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #f8fafc, #cbd5e1);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255,255,255,0.4);
+}
+
+/* Planètes */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 20s infinite linear;
+}
+
+/* Planètes existantes (légèrement retouchées pour cohérence) */
+.planet-1 {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #38bdf8, #0284c7 60%, #1e40af 100%);
+  top: 18%;
+  left: -100px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px #38bdf8aa;
+  animation: orbit 28s linear infinite;
+  opacity: 0.95;
+}
+
+.planet-2 {
+  width: 44px;
+  height: 44px;
+  background: radial-gradient(circle at 40% 35%, #c084fc, #a855f7, #6b21a8);
+  top: 32%;
+  left: -90px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #a855f7aa;
+  animation: orbit 42s linear infinite reverse;
+}
+
+.planet-3 {
+  width: 68px;
+  height: 68px;
+  background: radial-gradient(circle, #7dd3fc, #38bdf8, #02c754);
+  top: 68%;
+  left: -110px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #38bdf866;
+  animation: orbit 55s linear infinite;
+}
+
+.planet-4 {
+  width: 38px;
+  height: 38px;
+  background: radial-gradient(circle at 25% 40%, #d1d5db, #d6d932, #452166);
+  top: 42%;
+  left: -70px;
+  border-radius: 50%;
+  box-shadow: 0 0 18px #d6d93288;
+  animation: orbit 65s linear infinite reverse;
+}
+
+/* Nouvelles planètes ajoutées */
+
+.planet-5 {
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle, #f472b6, #db2777, #9d174d);
+  top: 55%;
+  left: -95px;
+  border-radius: 50%;
+  box-shadow: 0 0 28px #f472b6aa;
+  animation: orbit 36s linear infinite;
+}
+.pic {
+  font-size: 100%;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 30px rgba(255,255,255,0.15);
+  
+  color: #fff;
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 30px currentColor,
+    0 0 60px currentColor;
+  
+  animation: 
+    colorNeon 2.2s steps(1) infinite,    /* changement net toutes les ~1.2s */
+    pulseGlow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes colorNeon {
+  0%    { color: #00f0ff; text-shadow-color: #00f0ff; }
+  20%   { color: #ff00ff; text-shadow-color: #ff00ff; }
+  40%   { color: #ff0066; text-shadow-color: #ff0066; }
+  60%   { color: #ffff00; text-shadow-color: #ffff00; }
+  80%   { color: #00ff66; text-shadow-color: #00ff66; }
+  100%  { color: #00f0ff; text-shadow-color: #00f0ff; }
+}
+
+@keyframes pulseGlow {
+  from { text-shadow: 0 0 10px currentColor, 0 0 30px currentColor, 0 0 60px currentColor; }
+  to   { text-shadow: 0 0 20px currentColor, 0 0 60px currentColor, 0 0 120px currentColor; }
+}
+
+.planet-6 {   /* petite planète rapide avec halo */
+  width: 28px;
+  height: 28px;
+  background: #fef08a;
+  top: 12%;
+  left: -50px;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 15px #fef08a,
+    0 0 35px #ca8a04 inset;
+  animation: orbit 18s linear infinite;
+}
+
+.planet-7 {   /* planète avec "anneau" simple via ::after */
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #64748b, #334155, #1e293b);
+  top: 78%;
+  left: -120px;
+  border-radius: 50%;
+  box-shadow: 0 0 22px #94a3b888;
+  animation: orbit 72s linear infinite reverse;
+  position: relative;
+}
+
+.planet-7::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #94a3b8aa, transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(35deg);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.planet-8 {   /* planète glacée / cristalline */
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle at 20% 30%, #e0f2fe, #7dd3fc, #0284c7);
+  top: 25%;
+  left: -85px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #7dd3fcaa inset;
+  animation: orbit 48s linear infinite;
+  filter: brightness(1.1);
+}
+
+/* Animation de base (à mettre une seule fois) */
+@keyframes orbit {
+  from {
+    transform: translateX(0) rotate(0deg);
+  }
+  to {
+    transform: translateX(180vw) rotate(360deg);
+  }
+}
+
+@keyframes float {
+  from { transform: translateX(0); }
+  to { transform: translateX(120vw); }
+}
+
+/* Login */
+.login-container {
+  width: 420px;               /* plus large */
+  min-height: 520px;          /* hauteur suffisante pour formulaire + titre + espace */
+  background: rgba(15, 23, 42, 0.70);   /* plus transparent (0.85 → 0.70) */
+  padding: 40px 35px;         /* plus d'espace intérieur */
+  border-radius: 20px;
+  color: #f8fafc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 25px 60px rgba(0, 240, 255, 0.35),   /* couleur de départ = cyan néon */
+    0 0 40px rgba(0, 240, 255, 0.25) inset;
+  border: 1px solid rgba(248, 250, 252, 0.08);
+  overflow: hidden;           /* pour que les pseudo-éléments restent dedans si besoin */
+  animation: 
+    shadowNeon 1.2s steps(1) infinite,    /* changement net toutes ~1.2s */
+    shadowPulse 2.8s ease-in-out infinite alternate;
+}
+
+
+/* Animation ombre qui suit les couleurs du .pic (Option 3) */
+@keyframes shadowNeon {
+  0%    { 
+    box-shadow: 
+      0 25px 60px rgba(0, 240, 255, 0.35),
+      0 0 40px rgba(0, 240, 255, 0.25) inset; 
+  }
+  20%   { 
+    box-shadow: 
+      0 25px 60px rgba(255, 0, 255, 0.35),
+      0 0 40px rgba(255, 0, 255, 0.25) inset; 
+  }
+  40%   { 
+    box-shadow: 
+      0 25px 60px rgba(255, 0, 102, 0.35),
+      0 0 40px rgba(255, 0, 102, 0.25) inset; 
+  }
+  60%   { 
+    box-shadow: 
+      0 25px 60px rgba(255, 255, 0, 0.35),
+      0 0 40px rgba(255, 255, 0, 0.25) inset; 
+  }
+  80%   { 
+    box-shadow: 
+      0 25px 60px rgba(0, 255, 102, 0.35),
+      0 0 40px rgba(0, 255, 102, 0.25) inset; 
+  }
+  100%  { 
+    box-shadow: 
+      0 25px 60px rgba(0, 240, 255, 0.35),
+      0 0 40px rgba(0, 240, 255, 0.25) inset; 
+  }
+}
+
+@keyframes shadowPulse {
+  from {
+    box-shadow: 
+      0 25px 60px rgba(var(--shadow-rgb), 0.35),
+      0 0 40px rgba(var(--shadow-rgb), 0.25) inset;
+  }
+  to {
+    box-shadow: 
+      0 35px 80px rgba(var(--shadow-rgb), 0.50),
+      0 0 70px rgba(var(--shadow-rgb), 0.40) inset;
+  }
+}
+@keyframes shadowNeon {
+  0%    { box-shadow: 0 25px 60px #38bdf844, 0 0 40px #38bdf822 inset; }
+  25%   { box-shadow: 0 25px 60px #a855f744, 0 0 40px #a855f722 inset; }
+  50%   { box-shadow: 0 25px 60px #ec489944, 0 0 40px #ec489922 inset; }
+  75%   { box-shadow: 0 25px 60px #22c55e44, 0 0 40px #22c55e22 inset; }
+  100%  { box-shadow: 0 25px 60px #38bdf844, 0 0 40px #38bdf822 inset; }
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container label {
+  font-size: 14px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  opacity: 0.9;
+}
+
+#loginError {
+  display: none;
+  color: #f87171;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 15px auto; /* centre + espace en bas */
+  width: 100px;
+}
+
+/* Slogan */
+.slogan {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: #24df50;
+  text-shadow: 0 0 15px rgba(197, 35, 87, 0.6);
+}
+
