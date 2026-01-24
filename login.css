@@ -110,6 +110,8 @@
   box-shadow: 0 0 28px #f472b6aa;
   animation: orbit 36s linear infinite;
 }
+
+
 .pic {
   font-size: 100%;
   font-weight: 900;
@@ -119,32 +121,50 @@
   padding: 1rem 2rem;
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 30px rgba(255,255,255,0.15);
+  box-shadow: 0 0 30px rgba(255,255,255,0.12);
   
-  color: #fff;
+  color: #00f0ff;               /* couleur de départ fixe */
   text-shadow: 
-    0 0 10px currentColor,
-    0 0 30px currentColor,
-    0 0 60px currentColor;
+    0 0 8px  currentColor,
+    0 0 18px currentColor,
+    0 0 35px currentColor;
   
   animation: 
-    colorNeon 2.2s steps(1) infinite,    /* changement net toutes les ~1.2s */
-    pulseGlow 4.5s ease-in-out infinite alternate;
+    colorFlow 18s ease-in-out infinite,     /* très lent et doux */
+    softPulse 7s ease-in-out infinite alternate;
 }
 
-@keyframes colorNeon {
+/* ────────────────────────────────────────────────
+   1. Changement de couleur très progressif (arc-en-ciel doux)
+───────────────────────────────────────────────── */
+@keyframes colorFlow {
   0%    { color: #00f0ff; text-shadow-color: #00f0ff; }
-  20%   { color: #ff00ff; text-shadow-color: #ff00ff; }
-  40%   { color: #ff0066; text-shadow-color: #ff0066; }
-  60%   { color: #ffff00; text-shadow-color: #ffff00; }
-  80%   { color: #00ff66; text-shadow-color: #00ff66; }
+  25%   { color: #a855f7; text-shadow-color: #a855f7; }
+  50%   { color: #ec4899; text-shadow-color: #ec4899; }
+  75%   { color: #22c55e; text-shadow-color: #22c55e; }
   100%  { color: #00f0ff; text-shadow-color: #00f0ff; }
 }
 
-@keyframes pulseGlow {
-  from { text-shadow: 0 0 10px currentColor, 0 0 30px currentColor, 0 0 60px currentColor; }
-  to   { text-shadow: 0 0 20px currentColor, 0 0 60px currentColor, 0 0 120px currentColor; }
+/* ────────────────────────────────────────────────
+   2. Pulsation très douce et naturelle
+───────────────────────────────────────────────── */
+@keyframes softPulse {
+  from {
+    text-shadow: 
+      0 0 8px  currentColor,
+      0 0 18px currentColor,
+      0 0 35px currentColor;
+    transform: scale(1);
+  }
+  to {
+    text-shadow: 
+      0 0 14px currentColor,
+      0 0 32px currentColor,
+      0 0 70px currentColor;
+    transform: scale(1.015);   /* très léger agrandissement */
+  }
 }
+
 
 .planet-6 {   /* petite planète rapide avec halo */
   width: 28px;
