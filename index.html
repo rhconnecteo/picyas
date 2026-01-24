@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestion des Compétences</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+<header class="header">
+  <h1 class="main-title">Gestion des Compétences</h1>
+  <p class="subtitle">Évaluation des compétences par collaborateur</p>
+</header>
+
+<div class="form-grid">
+  <div class="card">
+    <label class="label">Service</label>
+    <select id="sheetName" class="select" onchange="loadCollaborateurs()">
+      <option value="CSA Multimedia YAS">CSA Multimedia YAS</option>
+      <option value="CSA Appels Entrants YAS">CSA Appels Entrants YAS</option>
+      <option value="CSA Appels Sortants YAS">CSA Appels Sortants YAS</option>
+      <option value="Manager Coach ENTREPRISE YAS">Manager Coach ENTREPRISE YAS</option> 
+      <option value="Manager Coach DIGITAL YAS">Manager Coach DIGITAL YAS</option> 
+      <option value="Manager Coach AS YAS">Manager Coach AS YAS</option> 
+      <option value="Manager Coach AE YAS">Manager Coach AE YAS</option> 
+      <option value="Manager Coach Activation Mobile et Facturation YAS">Manager Coach Activation Mobile et Facturation YAS</option> 
+      <option value="Manager Coach Activation Fixe/Internet YAS">Manager Coach Activation Fixe/Internet YAS</option> 
+      <option value="CSA Telesales YAS">CSA Telesales YAS</option> 
+      <option value="CSA Rétention YAS">CSA Rétention YAS</option> 
+      <option value="CSA Réclamation YAS">CSA Réclamation YAS</option> 
+      <option value="CSA Grands Comptes YAS">CSA Grands Comptes YAS</option> 
+      <option value="CSA Facturation YAS">CSA Facturation YAS</option> 
+      <option value="CSA Entreprise YAS">CSA Entreprise YAS</option> 
+      <option value="CSA Digital YAS">CSA Digital YAS</option> 
+      <option value="CSA courrier et base YAS">CSA courrier et base YAS</option> 
+      <option value="CSA activation Mobile YAS">CSA activation Mobile YAS</option> 
+      <option value="CSA Activation Fixe/Internet YAS">CSA Activation Fixe/Internet YAS</option> 
+      <option value="Contrôleur Spécifique YAS">Contrôleur Spécifique YAS</option> 
+      <option value="Contact Center Manager YAS">Contact Center Manager YAS</option> 
+      <option value="Operation Manager GESTION YAS">Operation Manager GESTION YAS</option> 
+      <option value="Operation Manager chargé des Activations & Facturation YAS">Operation Manager chargé des Activations & Facturation YAS</option> 
+      <option value="Manager Multimedia YAS">Manager Multimedia YAS</option> 
+      <option value="Manager Coach RETENTION YAS">Manager Coach RETENTION YAS</option> 
+      <option value="Manager Coach RECLAMATION YAS">Manager Coach RECLAMATION YAS</option> 
+      <option value="Manager Coach GRAND COMPTE YAS">Manager Coach GRAND COMPTE YAS</option> 
+    </select>
+  </div>
+
+  <div class="card">
+    <label class="label">Collaborateur</label>
+    <select id="matricule" class="select" disabled></select>
+  </div>
+</div>
+
+<div id="info" class="info-card" style="display:none;">
+  <div class="info-grid">
+    <div><strong>Matricule</strong><span id="i_matricule"></span></div>
+    <div><strong>Nom</strong><span id="i_nom"></span></div>
+    <div><strong>Fonction</strong><span id="i_fonction"></span></div>
+    <div><strong>Ancienneté</strong><span id="i_anciennete"></span></div>
+    <div><strong>Ancien poste</strong><span id="i_ancienPoste"></span></div>
+  </div>
+</div>
+
+<div id="statusBanner" style="display:none;"></div>
+
+<h2 id="competenceTitle" class="section-title" style="display:none;">
+  Évaluation des compétences
+</h2>
+
+<div id="competenceContainer" class="competences-grid"></div>
+
+<button id="btnSave" class="btn-primary" style="display:none;" onclick="save()">
+  Enregistrer
+</button>
+
+<div id="successMessage" class="success-banner" style="display:none;">
+  ✔ Enregistrement effectué avec succès
+</div>
+
+<div id="errorMessage" class="success-banner" style="display:none;background:#f59e0b;">
+  Veuillez évaluer au moins une compétence
+</div>
+
+</div>
+
+<!-- MODAL RÉCAP -->
+<!-- MODAL RÉCAP -->
+<div id="recapModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Récapitulatif</h3>
+
+    <!-- Résumé des compétences -->
+    <div id="recapContent"></div>
+
+    <!-- COMMENTAIRE -->
+    
+
+    <div class="recap-comment">
+  <label>Commentaire</label>
+  <textarea id="commentaire"></textarea>
+  <div id="commentError" class="comment-error" style="display:none;">
+    Le commentaire est obligatoire.
+  </div>
+</div>
+
+
+    <!-- ACTIONS -->
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeRecap()">Annuler</button>
+      <button class="btn-primary" onclick="confirmSave()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
