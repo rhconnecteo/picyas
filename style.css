@@ -367,6 +367,48 @@ textarea:-ms-input-placeholder { color: #888; }
 .modal-actions .btn-secondary { background: var(--danger); color: white; }
 .modal-actions .btn-primary   { background: var(--success); color: white; }
 
+.recap-item {
+  display: flex;
+  flex-direction: column;   /* 👈 empile verticalement */
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.recap-competence {
+  font-weight: 900;                    /* ultra bold */
+  font-size: 15px;
+  color: #151c01;                      /* violet bien punchy */
+  letter-spacing: 0.4px;               /* un peu d'espace entre lettres */
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: #5b21b6;
+  text-decoration-thickness: 3px;
+  text-decoration-style: solid;        /* ou wavy si tu veux tester */
+  display: inline-block;               /* permet de mieux contrôler l'underline */
+  padding-bottom: 2px;                 /* respire un peu plus */
+}
+
+.recap-niveau {
+  background-color: #f8fbff;
+  color: #1e293b;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.55;
+
+  padding: 14px 18px;
+  margin-top: 10px;
+
+  border: 3px solid #93c5fd;         /* bordure un peu plus épaisse = plus visible */
+  border-radius: 16px;                /* bien rond sans exagérer */
+
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+
 
 /* ===== RECAP COLOR LEVEL ===== */
 .recap-item {
